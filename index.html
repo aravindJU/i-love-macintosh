@@ -7,8 +7,16 @@
     <title>I❤️Macintosh</title>
     <link rel="icon" type="image/png" href="images/index/favicon.png">
     <script>
-        if (!window.matchMedia("(orientation: portrait)").matches || window.innerWidth > 768) {
-            window.location.href = 'index.html';
+        // Only redirect if we are currently on index.html and in portrait mode
+        if (window.matchMedia("(orientation: portrait)").matches && window.innerWidth <= 768) {
+            if (!window.location.pathname.includes('mobileindex.html')) {
+                window.location.href = 'mobileindex.html';
+            }
+        } else {
+            // If we are on mobileindex.html but rotated or switched to desktop mode
+            if (window.location.pathname.includes('mobileindex.html')) {
+                window.location.href = 'index.html';
+            }
         }
     </script>
 </head>
