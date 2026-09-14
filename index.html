@@ -7,13 +7,13 @@
     <title>I❤️Macintosh</title>
     <link rel="icon" type="image/png" href="images/index/favicon.png">
     <script>
-        // Only redirect if we are currently on index.html and in portrait mode
-        if (window.innerWidth <= 768) {
+        // Check if the screen width is mobile-sized (covers both portrait and landscape on phones)
+        if (window.innerWidth <= 900) {
             if (!window.location.pathname.includes('mobileindex.html')) {
                 window.location.href = 'mobileindex.html';
             }
         } else {
-            // If we are on mobileindex.html but rotated or switched to desktop mode
+            // Only redirect back to desktop index if it's a large desktop-sized screen
             if (window.location.pathname.includes('mobileindex.html')) {
                 window.location.href = 'index.html';
             }
