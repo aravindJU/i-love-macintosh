@@ -7,8 +7,8 @@
     <title>I❤️Macintosh</title>
     <link rel="icon" type="image/png" href="images/index/favicon.png">
     <script>
-        if (window.matchMedia("(orientation: portrait)").matches) {
-            window.location.href = 'mobileindex.html';
+        if (!window.matchMedia("(orientation: portrait)").matches || window.innerWidth > 768) {
+            window.location.href = 'index.html';
         }
     </script>
 </head>
