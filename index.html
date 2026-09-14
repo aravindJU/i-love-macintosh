@@ -8,7 +8,7 @@
     <link rel="icon" type="image/png" href="images/index/favicon.png">
     <script>
         // Only redirect if we are currently on index.html and in portrait mode
-        if (window.matchMedia("(orientation: portrait)").matches && window.innerWidth <= 768) {
+        if (window.innerWidth <= 768) {
             if (!window.location.pathname.includes('mobileindex.html')) {
                 window.location.href = 'mobileindex.html';
             }
