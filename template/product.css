@@ -1,0 +1,123 @@
+/* ==========================================================================
+   Apple Dark Aesthetic - Product Detail Page Fix
+   ========================================================================== */
+
+:root {
+    --bg-color: #000000;
+    --card-bg: #161617;
+    --border-color: #2c2c2e;
+    --text-primary: #f5f5f7;
+    --text-secondary: #86868b;
+    --font-stack: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", "Helvetica Neue", Arial, sans-serif;
+    --easing-apple: cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+/* Global Reset */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: var(--bg-color) !important;
+    color: var(--text-primary);
+    font-family: var(--font-stack);
+    min-height: 100vh;
+    padding-bottom: 5rem;
+    -webkit-font-smoothing: antialiased;
+}
+
+/* Hide legacy elements */
+hr, br {
+    display: none !important;
+}
+
+/* --------------------------------------------------------------------------
+   1. Header Banner / Product Title Bar
+   -------------------------------------------------------------------------- */
+body > div:first-of-type {
+    background: rgba(22, 22, 23, 0.8) !important;
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-bottom: 1px solid var(--border-color);
+    padding: 2.5rem 1rem !important;
+    text-align: center;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+body > div:first-of-type h1 {
+    font-size: clamp(1.8rem, 4vw, 2.5rem);
+    font-weight: 600;
+    letter-spacing: -0.015em;
+    background: linear-gradient(180deg, #ffffff 0%, #a1a1a6 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+/* --------------------------------------------------------------------------
+   2. Section Title Bars (e.g., "Images", "Release Date", "Internal Specifications")
+   -------------------------------------------------------------------------- */
+body > div[style*="background-color"] {
+    background-color: transparent !important;
+    color: var(--text-secondary) !important;
+    font-size: 1.15rem;
+    font-weight: 500;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    max-width: 1200px;
+    margin: 3rem auto 1.5rem auto !important;
+    padding: 0 1.5rem;
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 0.75rem;
+}
+
+/* --------------------------------------------------------------------------
+   3. Images & Content Container Grids
+   -------------------------------------------------------------------------- */
+/* Target the flex containers holding product images or details */
+div[style*="display: flex"] {
+    background-color: transparent !important;
+    display: flex !important;
+    justify-content: center !important;
+    flex-wrap: wrap !important;
+    gap: 1.5rem !important;
+    max-width: 1200px;
+    margin: 0 auto !important;
+    padding: 0 1.5rem;
+}
+
+/* Product Detail Cards / Image Containers */
+div[style*="display: flex"] > div {
+    background: var(--card-bg) !important;
+    border: 1px solid var(--border-color);
+    border-radius: 20px;
+    padding: 1.5rem !important;
+    transition: transform 0.4s var(--easing-apple), border-color 0.3s ease;
+}
+
+div[style*="display: flex"] > div:hover {
+    border-color: rgba(255, 255, 255, 0.25);
+    transform: translateY(-4px);
+}
+
+/* Images inside detail pages */
+div[style*="display: flex"] img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 12px;
+    filter: drop-shadow(0 8px 16px rgba(0,0,0,0.5));
+}
+
+/* --------------------------------------------------------------------------
+   4. Text & Metadata Rows (Release Date, Specs text)
+   -------------------------------------------------------------------------- */
+body > div:not([style*="display: flex"]):not(:first-of-type) {
+    color: var(--text-primary);
+    max-width: 1200px;
+    margin: 0.75rem auto;
+    padding: 0 1.5rem;
+    font-size: 1rem;
+}
